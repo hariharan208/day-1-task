@@ -1,0 +1,29 @@
+Objects And Its Internal Representation In JavaScript
+
+
+Objects, in JavaScript, is it’s most important data-type and forms the building blocks for modern JavaScript. 
+These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data-types all store a single value each (depending on their types).
+
+Objects and properties
+
+
+A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object.
+Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. 
+You access the properties of an object with a simple dot-notation:
+
+
+objectName.propertyName
+
+
+Most objects contain all their properties in a single block of memory (“a”, and “b”). All blocks of memory have a pointer to a map, which describes their structure.
+Named properties that don’t fit in an object are usually stored in an overflow array (“c”, and “d”).
+Numbered properties are stored separately, usually in a contiguous array.
+
+The JavaScript standard allows developers to define objects in a very flexible way, and it is hard to come up with an efficient representation that works for everything. An object is essentially a collection of properties: basically key-value pairs. You can access properties using two different kinds of expressions:
+
+obj.prop
+obj[“prop”]
+
+
+According to the spec, property names are always strings. If you use a name which is not a string, it is implicitly converted to a string. 
+This may be a little surprising: if you use a number as a property name, it gets converted to a string as well (at least according to the spec). Because of this, you can store values at negative or fractional array indices. So a JavaScript object is basically a map from strings to values.
